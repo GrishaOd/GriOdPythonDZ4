@@ -3,8 +3,6 @@
 # Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества.
 # Затем пользователь вводит сами элементы множеств.
 
-# list_1 = list(input('Введите первый набор чисел: '))
-# list_2 = list(input('Введите второй набор чисел: '))
 n = int(input('Введите количество элементов первого множества: '))
 m = int(input('Введите количество элементов второго множества: '))
 list_1 = list()
@@ -17,5 +15,11 @@ for i in range(m):
     list_2.append(number)
 list_1 = set(list_1)
 list_2 = set(list_2)
-result = list_1.intersection(list_2)
-print(f'Ответ: {result}')
+list_3 = list(list_1.intersection(list_2))
+for n1 in range(len(list_3)):
+    for n2 in range(n1+1, len(list_3)):
+        if list_3[n1] > list_3[n2]:
+            x = list_3[n1]
+            list_3[n1] = list_3[n2]
+            list_3[n2] = x
+print(f'Ответ: {list_3}')
