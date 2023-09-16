@@ -18,22 +18,27 @@ for i in range(N):
     gradka.append(ai)
 for i in range(len(gradka)):
     print(f'Куст №{i+1}: количество ягод - {gradka[i]}')
-kust = int(input('Введите номер куста к которому направить собирающий модуль: '))
-kust -= 1
+# kust = int(input('Введите номер куста к которому направить собирающий модуль: '))
+# kust -= 1
 sosed1 = int()
 sosed2 = int()
-if kust > N-1 or kust < 0:
-    print('Такого куста нет на грядке :(')
-elif kust == N-1:
-    sosed1 = kust - 1
-    sosed2 = 0
-elif kust == 0:
-    sosed1 = N-1
-    sosed2 = kust + 1
-else:
-    sosed1 = kust - 1
-    sosed2 = kust + 1
-print(f'Количество собранных ягод равно {gradka[sosed1] + gradka[kust] + gradka[sosed2]}')
+result = 0
+for kust in range(len(gradka)):
+    # if kust > N-1 or kust < 0:
+    #     print('Такого куста нет на грядке :(')
+    if kust == N-1:
+        sosed1 = kust - 1
+        sosed2 = 0
+    elif kust == 0:
+        sosed1 = N-1
+        sosed2 = kust + 1
+    else:
+        sosed1 = kust - 1
+        sosed2 = kust + 1
+    berryvalue = int(gradka[sosed1] + gradka[kust] + gradka[sosed2])
+    if berryvalue > result:
+        result = berryvalue
+print(f'Максимальное количество собранных ягод равно {result}')
 
 
 

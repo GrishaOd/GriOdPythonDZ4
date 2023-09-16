@@ -19,7 +19,5 @@ list_3 = list(list_1.intersection(list_2))
 for n1 in range(len(list_3)):
     for n2 in range(n1+1, len(list_3)):
         if list_3[n1] > list_3[n2]:
-            x = list_3[n1]
-            list_3[n1] = list_3[n2]
-            list_3[n2] = x
+            list_3[n1], list_3[n2] = list_3[n2], list_3[n1]
 print(f'Ответ: {list_3}')
